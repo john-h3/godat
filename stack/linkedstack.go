@@ -6,36 +6,34 @@ type node[T any] struct {
 }
 
 type LinkedStack[T any] struct {
-	sentinel node[T]
+	node[T]
 }
 
 func (s *LinkedStack[T]) Push(t T) {
-	head := s.sentinel.next
-	s.sentinel.next = &node[T]{v: t, next: head}
+	s.next = &node[T]{v: t, next: s.next}
 }
 
 func (s *LinkedStack[T]) Pop() (v T, ok bool) {
-	head := s.sentinel.next
-	if head != nil {
-		v = head.v
+	if s.next != nil {
+		v = s.next.v
 		ok = true
-		s.sentinel.next = head.next
+		s.next = s.next.next
 	}
 	return
 }
 
 func (s *LinkedStack[T]) Peek() (v T, ok bool) {
-	if s.sentinel.next != nil {
-		v = s.sentinel.next.v
+	if s.next != nil {
+		v = s.next.v
 		ok = true
 	}
 	return
 }
 
 func (s *LinkedStack[T]) IsEmpty() bool {
-	return s.sentinel.next == nil
+	return s.next == nil
 }
 
 func (s *LinkedStack[T]) Clear() {
-	s.sentinel.next = nil
+	s.next = nil
 }

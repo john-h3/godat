@@ -18,7 +18,7 @@ func TestPush(t *testing.T) {
 	s.Push(1)
 	s.Push(2)
 	s.Push(3)
-	node := s.sentinel.next
+	node := s.next
 	assert.NotNil(t, node)
 	assert.NotNil(t, node.v)
 	assert.Equal(t, 3, node.v)
@@ -34,7 +34,7 @@ func TestPush(t *testing.T) {
 
 func TestPop(t *testing.T) {
 	s := LinkedStack[int]{}
-	s.sentinel.next = &node[int]{v: 1}
+	s.next = &node[int]{v: 1}
 	v, ok := s.Pop()
 	assert.True(t, ok)
 	assert.Equal(t, 1, v)
@@ -42,7 +42,7 @@ func TestPop(t *testing.T) {
 
 func TestPeek(t *testing.T) {
 	s := LinkedStack[int]{}
-	s.sentinel.next = &node[int]{v: 1}
+	s.next = &node[int]{v: 1}
 	v, ok := s.Peek()
 	assert.True(t, ok)
 	assert.Equal(t, 1, v)
@@ -51,13 +51,13 @@ func TestPeek(t *testing.T) {
 func TestIsEmpty(t *testing.T) {
 	s := LinkedStack[int]{}
 	assert.True(t, s.IsEmpty())
-	s.sentinel.next = &node[int]{v: 1}
+	s.next = &node[int]{v: 1}
 	assert.False(t, s.IsEmpty())
 }
 
 func TestClear(t *testing.T) {
 	s := LinkedStack[int]{}
-	s.sentinel.next = &node[int]{v: 1}
+	s.next = &node[int]{v: 1}
 	s.Clear()
-	assert.Nil(t, s.sentinel.next)
+	assert.Nil(t, s.next)
 }
