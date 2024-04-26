@@ -27,10 +27,10 @@ func (s *SliceStack[T]) Peek() (v T, ok bool) {
 	return
 }
 
-func (s *SliceStack[T]) IsEmpty() bool {
-	return len(s.slice) == 0
-}
-
 func (s *SliceStack[T]) Clear() {
 	s.slice = s.slice[:0]
+}
+
+func (s *SliceStack[T]) Size() int {
+	return len(s.slice)
 }

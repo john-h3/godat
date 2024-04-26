@@ -18,8 +18,10 @@ ok  	github.com/john-h3/godat/stack	3.807s
 ## test
 
 ```
-Running tool: /usr/local/go/bin/go test -timeout 30s -run ^(TestLinkedStackPush|TestSliceStackPush|TestLinkedStackPop|TestSliceStackPop|TestLinkedStackPeek|TestSliceStackPeek|TestLinkedStackIsEmpty|TestSliceStackIsEmpty|TestLinkedStackClear|TestSliceStackClear)$ github.com/john-h3/godat/stack
+Running tool: /usr/local/go/bin/go test -timeout 30s -run ^(TestStack|TestLinkedStackPush|TestSliceStackPush|TestLinkedStackPop|TestSliceStackPop|TestLinkedStackPeek|TestSliceStackPeek|TestLinkedStackSize|TestSliceStackSize|TestLinkedStackClear|TestSliceStackClear)$ github.com/john-h3/godat/stack
 
+=== RUN   TestStack
+--- PASS: TestStack (0.00s)
 === RUN   TestLinkedStackPush
 --- PASS: TestLinkedStackPush (0.00s)
 === RUN   TestSliceStackPush
@@ -32,14 +34,14 @@ Running tool: /usr/local/go/bin/go test -timeout 30s -run ^(TestLinkedStackPush|
 --- PASS: TestLinkedStackPeek (0.00s)
 === RUN   TestSliceStackPeek
 --- PASS: TestSliceStackPeek (0.00s)
-=== RUN   TestLinkedStackIsEmpty
---- PASS: TestLinkedStackIsEmpty (0.00s)
-=== RUN   TestSliceStackIsEmpty
---- PASS: TestSliceStackIsEmpty (0.00s)
+=== RUN   TestLinkedStackSize
+--- PASS: TestLinkedStackSize (0.00s)
+=== RUN   TestSliceStackSize
+--- PASS: TestSliceStackSize (0.00s)
 === RUN   TestLinkedStackClear
 --- PASS: TestLinkedStackClear (0.00s)
 === RUN   TestSliceStackClear
 --- PASS: TestSliceStackClear (0.00s)
 PASS
-ok      github.com/john-h3/godat/stack  (cached)
+ok      github.com/john-h3/godat/stack  0.010s
 ```

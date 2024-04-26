@@ -80,18 +80,19 @@ func TestSliceStackPeek(t *testing.T) {
 	assert.Equal(t, 1, v)
 }
 
-func TestLinkedStackIsEmpty(t *testing.T) {
+func TestLinkedStackSize(t *testing.T) {
 	s := LinkedStack[int]{}
-	assert.True(t, s.IsEmpty())
+	assert.Equal(t, 0, s.Size())
 	s.next = &node[int]{v: 1}
-	assert.False(t, s.IsEmpty())
+	s.size = 1
+	assert.Equal(t, 1, s.Size())
 }
 
-func TestSliceStackIsEmpty(t *testing.T) {
+func TestSliceStackSize(t *testing.T) {
 	s := SliceStack[int]{}
-	assert.True(t, s.IsEmpty())
+	assert.Equal(t, 0, s.Size())
 	s.slice = []int{1}
-	assert.False(t, s.IsEmpty())
+	assert.Equal(t, 1, s.Size())
 }
 
 func TestLinkedStackClear(t *testing.T) {
