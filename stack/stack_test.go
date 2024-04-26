@@ -20,6 +20,11 @@ func BenchmarkLinkedStackPush(b *testing.B) {
 	}
 }
 
+func TestStack(t *testing.T) {
+	assert.Implements(t, (*Stack[int])(nil), new(LinkedStack[int]))
+	assert.Implements(t, (*Stack[int])(nil), new(SliceStack[int]))
+}
+
 func TestLinkedStackPush(t *testing.T) {
 	s := LinkedStack[int]{}
 	s.Push(1)
