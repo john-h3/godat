@@ -23,13 +23,12 @@ func (q *LinkedQueue[T]) Enqueue(t T) {
 }
 
 func (q *LinkedQueue[T]) Dequeue() (v T, ok bool) {
-	if q.size == 0 {
-		return
+	if q.size > 0 {
+		v, ok = q.first.v, true
+		q.first = q.first.next
+		q.size--
 	}
-	v, ok = q.first.v, true
-	q.first = q.first.next
-	q.size--
-	return v, true
+	return
 }
 
 func (q *LinkedQueue[T]) Peek() (v T, ok bool) {
